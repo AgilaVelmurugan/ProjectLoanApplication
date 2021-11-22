@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+    
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5 p-5 text-center"style="box-shadow: 0 16px 16px rgba(0,0,0,0.5);">
+        <img src="~/images/confirmtick.png" class="imgsizecon" />
+        <h1 class="text-primary m-5">Your Form Submitted Successfully !</h1>
+        <a href="/Home/LoanReport" class="btn btn-danger btn-radcon">close</a>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<script>
+    window.onload = function () {
+        localStorage.clear();
+        console.log("calling cache");
+    }
+</script>
+

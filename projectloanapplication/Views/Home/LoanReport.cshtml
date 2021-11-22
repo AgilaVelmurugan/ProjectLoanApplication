@@ -1,0 +1,78 @@
+﻿@model IEnumerable<projectloanapplication.Models.TblLoanapplication>
+
+
+
+
+
+<div class="row mh-100">
+
+    <div class="col-md-12">
+        <div class="card bg-primary text-center text-white border-0">
+            <h1>Loan Application Report</h1>
+        </div>
+    </div>
+   
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="row align-items-center mt-5">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-8">
+            <div class="card" style="box-shadow: 0 16px 16px rgba(0,0,0,0.5);">
+                <div class="card-body p-0 border-0">
+                    <div class="row">
+                        <div class="col-md-4 text-white d-md-flex align-items-center h-auto p-5 text-center justify-content-center bg-primary">
+                            <div class="card-text text-center">
+                                <h4>Application Number @item.LoanApplicationNumber</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-md-inline align-items-center text-center h-100 p-5 justify-content-center bg-light">
+                            <div class="card-text text-justify">
+                                <table class="font-weight-bold ">
+                                    <tr>
+                                        <td><i class="fas fa-user ">&nbsp;&nbsp; Applicant Name</i></td>
+                                        <td>:</td>
+                                        <td> @item.FullName</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-phone-square-alt">&nbsp;&nbsp;Phone Number</i></td>
+                                        <td>:</td>
+                                        <td>@item.PhoneNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-rupee-sign">&nbsp;&nbsp;Loan Amount</i></td>
+                                        <td>:</td>
+                                        <td class="m-3">@item.LoanAmount</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-money-check-alt">&nbsp;&nbsp;Annual Interest</i></td>
+                                        <td>:</td>
+                                        <td>@item.InterestOnYear</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                         
+                        </div>
+                        <div class="col-md-3 bg-light">
+                            <div class="card-text d-md-flex align-items-center h-100 p-3 text-center justify-content-center ">
+                                @Html.ActionLink("View More", "ApplicationDetail", new { id = item.LoanApplicationNumber }, new { @class = "btn btn-primary btn-rad" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        
+    </div>
+}
+
+   

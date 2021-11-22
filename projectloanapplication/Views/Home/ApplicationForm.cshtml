@@ -1,0 +1,230 @@
+﻿@model projectloanapplication.Models.TblLoanapplication
+
+@{
+    ViewData["Title"] = "ApplicationForm";
+}
+
+
+
+<div class="row font-weight-bold">
+    <div class="col-md-4 bg-primary text-center">
+        <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+            <div class="logoarea pt-5 pb-5">
+                <h1 class="font-weight-bold">Welcome To Contoso</h1>
+                <img src="~/images/bank-logo.png" class="imgsize" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-8 bg-white p-5 font-weight-bold">
+        <div class="text-primary text-center">
+            <h2 class="font-weight-bold">LOAN APPLICATION FORM</h2>
+        </div>
+        <form asp-action="ApplicationForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label">Full Name <span class="text-danger">*</span></label>
+                        <input asp-for="FullName" class="form-control input" id="txtfullname" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DateOfBirth" class="control-label">Date Of Birth <span class="text-danger">*</span></label>
+                        <input asp-for="DateOfBirth" class="form-control input" id="txtdateofbirth" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label">Phone Number <span class="text-danger">*</span></label>
+                        <input asp-for="PhoneNumber" class="form-control input" id="txtphonenumber" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AlternateNumber" class="control-label"></label>
+                        <input asp-for="AlternateNumber" class="form-control input" id="txtalternatenumber" />
+                        <span asp-validation-for="AlternateNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="EmailId" class="control-label">Email ID </label>
+                        <input asp-for="EmailId" class="form-control input" id="txtemailid" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PanNumber" class="control-label">Pan Number<span class="text-danger">*</span></label>
+                        <input asp-for="PanNumber" class="form-control input" id="txtpannumber" />
+                        <span asp-validation-for="PanNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AadharNumber" class="control-label">Aadhar Number <span class="text-danger">*</span></label>
+                        <input asp-for="AadharNumber" class="form-control input" id="txtaadharnumber" />
+                        <span asp-validation-for="AadharNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="UserAddress" class="control-label">Address</label>
+                        <input asp-for="UserAddress" class="form-control input" id="txtuseraddress" />
+                        <span asp-validation-for="UserAddress" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="JobType" class="control-label">Job Type <span class="text-danger">*</span></label>
+                        <select id="txtjobtype" asp-items="@ViewBag.JobType" asp-for="JobType" class="form-control">
+                            <option value="-1" selected disabled>Please select Job Type</option>
+                        </select>
+                        <span asp-validation-for="JobType" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AnnualIncome" class="control-label">Annual Income <span class="text-danger">*</span></label>
+                        <input asp-for="AnnualIncome" class="form-control input" id="txtannualincome" />
+                        <span asp-validation-for="AnnualIncome" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LoanType" class="control-label"> Loan Type <span class="text-danger">*</span></label>
+                        <select id="txtloantype" asp-items="@ViewBag.LoanType" asp-for="LoanType" class="form-control">
+                            <option value="-1" selected disabled>Please select Loan Type</option>
+                        </select>
+                        <span asp-validation-for="LoanType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LoanAmount" class="control-label">Loan Amount <span class="text-danger">*</span></label>
+                        <input asp-for="LoanAmount" class="form-control input" onkeyup="FindInterest()" id="txtloanamount" />
+                        <span asp-validation-for="LoanAmount" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="InterestOnYear" class="control-label">Annual Interest For the Entered Loan Amount </label>
+                        <input asp-for="InterestOnYear" class="form-control input" id="txtinterest" readonly />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-block btn-primary input" />
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="form-group">
+                        <input type="button" value="Save" onclick="savedata()" class="btn btn-block btn-success input" />
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-white">
+                    <div class="form-group">
+                        <input type="reset" value="Reset" onclick="clearcache()" class="btn btn-block btn-warning input" />
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+
+@section Scripts {
+   
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        //calculating interest
+        function FindInterest() {
+
+            var amount = document.getElementById("txtloanamount").value;
+
+            if (amount > 0 && amount <= 20000) {
+                document.getElementById("txtinterest").value = ((amount * 5 * 1) / 100);
+            }
+            else if (amount > 20000 && amount <= 100000) {
+                document.getElementById("txtinterest").value = ((amount * 6.5 * 1) / 100);
+            }
+            else if (amount > 100000) {
+                document.getElementById("txtinterest").value = ((amount * 8 * 1) / 100);
+            }
+            else {
+                document.getElementById("txtinterest").value = null;
+            }
+        }
+        //localstorage
+        function savedata() {
+            window.localStorage.setItem("txtfullname", document.getElementById("txtfullname").value);
+            window.localStorage.setItem("txtdateofbirth", document.getElementById("txtdateofbirth").value);
+            window.localStorage.setItem("txtphonenumber", document.getElementById("txtphonenumber").value);
+            window.localStorage.setItem("txtalternatenumber", document.getElementById("txtalternatenumber").value);
+            window.localStorage.setItem("txtemailid", document.getElementById("txtemailid").value);
+            window.localStorage.setItem("txtpannumber", document.getElementById("txtpannumber").value);
+            window.localStorage.setItem("txtaadharnumber", document.getElementById("txtaadharnumber").value);
+            window.localStorage.setItem("txtuseraddress", document.getElementById("txtuseraddress").value);
+            window.localStorage.setItem("txtloantype", document.getElementById("txtloantype").value);
+            window.localStorage.setItem("txtjobtype", document.getElementById("txtjobtype").value);
+            window.localStorage.setItem("txtannualincome", document.getElementById("txtannualincome").value);
+            window.localStorage.setItem("txtloanamount", document.getElementById("txtloanamount").value);
+            window.localStorage.setItem("txtinterest", document.getElementById("txtinterest").value);
+        }
+        window.onload = function () {
+            document.getElementById("txtfullname").value = localStorage.getItem("txtfullname");
+            document.getElementById("txtdateofbirth").value = localStorage.getItem("txtdateofbirth");
+            document.getElementById("txtphonenumber").value = localStorage.getItem("txtphonenumber");
+            document.getElementById("txtalternatenumber").value = localStorage.getItem("txtalternatenumber");
+            document.getElementById("txtemailid").value = localStorage.getItem("txtemailid");
+            document.getElementById("txtpannumber").value = localStorage.getItem("txtpannumber");
+            document.getElementById("txtaadharnumber").value = localStorage.getItem("txtaadharnumber");
+            document.getElementById("txtuseraddress").value = localStorage.getItem("txtuseraddress");
+            document.getElementById("txtloantype").value = localStorage.getItem("txtloantype");
+            document.getElementById("txtjobtype").value = localStorage.getItem("txtjobtype");
+            document.getElementById("txtannualincome").value = localStorage.getItem("txtannualincome");
+            document.getElementById("txtloanamount").value = localStorage.getItem("txtloanamount");
+            document.getElementById("txtinterest").value = localStorage.getItem("txtinterest");
+        }
+        //clearing localstorage
+        function clearcache() {
+            localStorage.clear();
+            console.log("calling cache");
+
+        }
+    </script>
+}
+
+

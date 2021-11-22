@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projectloanapplication_api", "projectloanapplication_api\projectloanapplication_api.csproj", "{68657494-752A-4367-AAC8-2F097EAE43BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projectloanapplication", "projectloanapplication\projectloanapplication.csproj", "{6C3AF1BA-F0DA-4578-A238-129B984AA07A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68657494-752A-4367-AAC8-2F097EAE43BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68657494-752A-4367-AAC8-2F097EAE43BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68657494-752A-4367-AAC8-2F097EAE43BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68657494-752A-4367-AAC8-2F097EAE43BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C3AF1BA-F0DA-4578-A238-129B984AA07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3AF1BA-F0DA-4578-A238-129B984AA07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3AF1BA-F0DA-4578-A238-129B984AA07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3AF1BA-F0DA-4578-A238-129B984AA07A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60A222B7-060B-467B-A795-1D842A4E2B2F}
+	EndGlobalSection
+EndGlobal

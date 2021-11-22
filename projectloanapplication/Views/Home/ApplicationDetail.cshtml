@@ -1,0 +1,124 @@
+﻿@model projectloanapplication.Models.TblLoanapplication
+
+
+
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8 mt-lg-5" style="box-shadow: 0 16px 16px rgba(0,0,0,0.5);">
+            <div class="row">
+                <div class="col-md-6 p-0">
+                    <img src="~/images/detailbank.jpg" class="imgsize"/>
+                </div>
+                <div class="col-md-6 p-5">
+                    <dl class="row">
+                        <dt class="col-md-12 text-center text-primary ">
+                            <h2 class="font-weight-bold">APPLICANT DETAILS</h2>
+                        </dt>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.LoanApplicationNumber)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.LoanApplicationNumber)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.FullName)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.DateOfBirth)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.DateOfBirth)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.AlternateNumber)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.AlternateNumber)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.EmailId)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.EmailId)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.PanNumber)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.PanNumber)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.AadharNumber)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.AadharNumber)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.UserAddress)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.UserAddress)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.LoanType)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.LoanType)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.JobType)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.JobType)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.AnnualIncome)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.AnnualIncome)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.LoanAmount)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.LoanAmount)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.InterestOnYear)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.InterestOnYear)
+                        </dd>
+                        <dt class="col-sm-6">
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </dt>
+                        <dd class="col-sm-6 font-weight-bold">
+                            @Html.DisplayFor(model => model.CreatedDate)
+                        </dd>
+
+                    </dl>
+                    <div>
+                        @Html.ActionLink("Back", "LoanReport", new { id = Model.LoanApplicationNumber }, new { @class = "btn btn-block btn-primary btn-rad text-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+
+    </div>
+
+
+
