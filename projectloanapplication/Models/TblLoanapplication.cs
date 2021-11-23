@@ -11,7 +11,8 @@ namespace projectloanapplication.Models
         public string LoanApplicationNumber { get; set; }
         [Required (ErrorMessage ="Please Enter Full Name ")]
         [Display (Name ="Full Name")]
-        [StringLength(20,ErrorMessage ="Name must be less than 20 characters")]
+        [RegularExpression(@"^.{3,}$", ErrorMessage = "Minimum 3 characters required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximum 30 characters")]
         public string FullName { get; set; }
         [Required (ErrorMessage = "Please Choose Date of Birth")]
         [Display(Name ="Date Of Birth")]
@@ -21,7 +22,7 @@ namespace projectloanapplication.Models
         [Display(Name ="Phone Number")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
-        //[StringLength(10)]
+ 
         public string PhoneNumber { get; set; }
         [Display(Name ="Alternate Phone Number")]
         [DataType(DataType.PhoneNumber)]

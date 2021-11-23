@@ -79,6 +79,7 @@ namespace projectloanapplication.Controllers
             HttpResponseMessage response = cli.PostAsync(cli.BaseAddress + "api/TblLoanapplications", content).Result;
             if (response.IsSuccessStatusCode)
             {
+                TempData["Name"] = loanapplication.FullName;
                 return RedirectToAction("Confirmation");
 
             }

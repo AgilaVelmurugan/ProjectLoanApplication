@@ -35,8 +35,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="DateOfBirth" class="control-label">Date Of Birth <span class="text-danger">*</span></label>
-                        <input asp-for="DateOfBirth" class="form-control input" id="txtdateofbirth" />
-                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        <input asp-for="DateOfBirth" class="form-control input" id="txtdateofbirth" onchange="validatedate()" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger" id="spandob"></span>
                     </div>
                 </div>
             </div>
@@ -93,8 +93,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="JobType" class="control-label">Job Type <span class="text-danger">*</span></label>
-                        <select id="txtjobtype" asp-items="@ViewBag.JobType" asp-for="JobType" class="form-control">
-                            <option value="-1" selected disabled>Please select Job Type</option>
+                        <select id="txtjobtype" asp-items="@ViewBag.JobType" asp-for="JobType" class="form-control font-weight-bold">
+                            <option value="-1" selected disabled >Please select Job Type</option>
                         </select>
                         <span asp-validation-for="JobType" class="text-danger"></span>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label asp-for="LoanType" class="control-label"> Loan Type <span class="text-danger">*</span></label>
                         <select id="txtloantype" asp-items="@ViewBag.LoanType" asp-for="LoanType" class="form-control">
-                            <option value="-1" selected disabled>Please select Loan Type</option>
+                            <option value="-1" selected disabled >Please select Loan Type</option>
                         </select>
                         <span asp-validation-for="LoanType" class="text-danger"></span>
                     </div>
@@ -202,6 +202,7 @@
             window.localStorage.setItem("txtannualincome", document.getElementById("txtannualincome").value);
             window.localStorage.setItem("txtloanamount", document.getElementById("txtloanamount").value);
             window.localStorage.setItem("txtinterest", document.getElementById("txtinterest").value);
+            alert("Data Saved successfullty");
         }
         window.onload = function () {
             document.getElementById("txtfullname").value = localStorage.getItem("txtfullname");
@@ -223,6 +224,20 @@
             localStorage.clear();
             console.log("calling cache");
 
+        }
+        //dob validation
+        function validatedate() {
+            var today = new Date();
+            var yyyy = today.getFullYear();
+            var dob = (document.getElementById("txtdateofbirth").value).split('-');
+            var currentyear = parseInt(yyyy);
+            var dobyear = parseInt(dob[0]);
+            if ((currentyear - dobyear) < 18) {
+                document.getElementById("spandob").innerHTML = "Your age must be greater than 18";
+            }
+            else {
+                document.getElementById("spandob").innerHTML = null;
+            }
         }
     </script>
 }
